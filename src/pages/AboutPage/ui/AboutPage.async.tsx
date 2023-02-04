@@ -5,6 +5,6 @@ export const AboutPageAsync = lazy(
     new Promise((resolve) => {
       //@ts-ignore
       // FIXME: remove setTimeout
-      setTimeout(() => resolve(import('./AboutPage')), 1500);
+      setTimeout(() => resolve(import('../ui/AboutPage')), 1500);
     })
 );
