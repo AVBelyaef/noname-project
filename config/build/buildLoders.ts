@@ -3,6 +3,21 @@ import { RuleSetRule } from 'webpack';
 import { BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  };
+
+  const svgLoader = {
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    use: ['@svgr/webpack'],
+  };
+
   const cssLoaders = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -21,11 +36,12 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
       'sass-loader',
     ],
   };
+
   const typesciptLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
     exclude: /node_modules/,
   };
 
-  return [typesciptLoader, cssLoaders];
+  return [typesciptLoader, cssLoaders, svgLoader, fileLoader];
 }
