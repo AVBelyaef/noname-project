@@ -6,7 +6,7 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import './styles/index.scss';
 
-const App = () => {
+function App() {
   const { theme } = useTheme();
 
   return (
@@ -17,15 +17,15 @@ const App = () => {
           <Sidebar />
           <AppRouter />
         </div>
-      
-      <Navbar />
-      <div className="content-page">
-        <Sidebar />
-        <AppRouter />
-      </div>
+
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          <AppRouter />
+        </div>
       </Suspense>
     </div>
   );
-};
+}
 
 export default App;
