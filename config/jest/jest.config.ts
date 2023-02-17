@@ -23,6 +23,9 @@ export default {
   moduleDirectories: [
     'node_modules',
   ],
+  modulePaths: [
+    '<rootDir>src',
+  ],
   moduleFileExtensions: [
     'js',
     'mjs',
@@ -33,6 +36,7 @@ export default {
     'json',
     'node',
   ],
+  setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
   rootDir: '../../',
   testMatch: [
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
