@@ -13,7 +13,7 @@ export function buildPlugins({
   paths,
   isDev,
 }: BuildOptions): WebpackPluginInstance[] {
-  return [
+  const prodPlugins = [
     new ProgressPlugin(),
     new HtmlWebpackPlugin({
       template: paths.html,
@@ -25,7 +25,14 @@ export function buildPlugins({
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-    new HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin(),
   ];
+
+  if (isDev) {
+    prodPlugins.push(new HotModuleReplacementPlugin());
+    prodPlugins.push(new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }));
+  }
+
+  return prodPlugins;
 }
