@@ -3,4 +3,4 @@ export { Profile, ProfileSchema } from './model/types/profile';
 export {
   profileActions,
   profileReducer,
-} from './model/selectors/profileSlice';
+} from './model/slice/profileSlice';
