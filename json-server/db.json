@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "name": "typicode",
+    "first": "Alexander",
+    "lastname": "Belyaef",
+    "age": 33,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "NN",
+    "username": "admin",
+    "avatar": "" }
 }
